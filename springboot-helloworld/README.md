@@ -3,8 +3,9 @@
 A spring boot enabled hello world application
 
 ## Dependencies
-* Java 17 JDK
-* Maven
+* JDK 17
+* Spring Boot 3.2.4
+* Maven 3
 
 ## Usage
 
