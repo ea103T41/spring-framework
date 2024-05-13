@@ -1,5 +1,5 @@
-drop table T_account_ROLE;
-drop table T_account;
+drop table T_account_ROLE IF EXISTS;
+drop table T_account IF EXISTS;
 
 CREATE TABLE t_account (
   name VARCHAR(15) NOT NULL,
