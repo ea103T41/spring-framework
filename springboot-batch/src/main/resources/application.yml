@@ -1,0 +1,23 @@
+server:
+  port: 9100
+
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:~/Dev/db/h2/local;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  sql:
+    init:
+      schema-locations: classpath:org/springframework/batch/core/schema-drop-h2.sql,classpath:sql/schema.sql
+      mode: always
+
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
