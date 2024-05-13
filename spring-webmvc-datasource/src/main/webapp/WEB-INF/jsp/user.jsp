@@ -21,7 +21,7 @@
 	</table>
 	<table>
         <tr>
-            <td><a href="/spring-mvc-datasource">Home</a></td>
+            <td><a href="${pageContext.request.contextPath}/">Home</a></td>
         </tr>
     </table>
 </body>

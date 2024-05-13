@@ -1,10 +1,10 @@
-# Spring MVC Hello World
+# Spring Web MVC Hello World
 
-A spring mvc enabled hello world application
+A spring web mvc enabled hello world application
 
 ## Dependencies
 * JDK 17
-* Spring MVC 6.1.6
+* Spring Web MVC 6.1.6
 * Servlet 6.0.0
 * Maven 3
 * Tomcat 10.1.x
@@ -20,6 +20,6 @@ A spring mvc enabled hello world application
   3. Deploy the WAR file to Tomcat server.
 
 - Running on a Tomcat Server within an IDE 
-  1. Choose a Tomcat server compatible with Spring MVC in your IDE. 
+  1. Choose a Tomcat server compatible with Spring Web MVC in your IDE. 
   2. Select the project to deploy and start the Tomcat server.
 
