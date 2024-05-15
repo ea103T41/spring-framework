@@ -1,10 +1,12 @@
-# Spring Boot Hello World
+# Spring Data JPA Application
 
-A spring boot enabled hello world application
+A spring data jpa application seamlessly integrates with the database.
 
 ## Dependencies
 * JDK 17
 * Spring Boot 3.2.4
+* Spring Data JPA
+* embedded H2
 * Maven 3
 
 ## Usage
@@ -22,6 +24,6 @@ Application.java
 - From executable jar file
 ```
 mvn clean install
-java -jar target/springboot-helloworld-1.0-SNAPSHOT.war
+java -jar target/springboot-jpa-1.0-SNAPSHOT.war
 ```
 
