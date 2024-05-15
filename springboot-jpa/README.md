@@ -27,3 +27,5 @@ mvn clean install
 java -jar target/springboot-jpa-1.0-SNAPSHOT.war
 ```
 
+# Reference
+ - [第十四章 | Spring-data-jpa訪問資料庫](https://morosedog.gitlab.io/springboot-20190328-springboot14/#google_vignette)
