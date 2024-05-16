@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.io.IOException;
 
 @Controller
-public class IndexController {
+public class HomeController {
 
     @Value("${path.view.index}")
     private String INDEX_PATH;
