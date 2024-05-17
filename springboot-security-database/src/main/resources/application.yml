@@ -1,0 +1,6 @@
+server.error.whitelabel.enabled: false
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/shop
+#      uri: mongodb://host:docker:internal:27017/shop
