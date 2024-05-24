@@ -28,6 +28,11 @@ public class UserBatchController {
         this.job = job;
     }
 
+    @GetMapping
+    public ResponseEntity<String> getJobs() {
+        return ResponseEntity.ok("Run job: " + job.getName());
+    }
+
     @GetMapping("/job/{id}")
     public ResponseEntity<String> getJob(@PathVariable("id") Long id) {
         JobExecution jobExecution = jobExplorer.getJobExecution(id);

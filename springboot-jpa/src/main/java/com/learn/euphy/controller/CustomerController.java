@@ -21,7 +21,11 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<CustomerDto> findCustomer(@RequestParam String name) {
+    public ResponseEntity<?> findCustomer(
+            @RequestParam(name = "name", required = false) String name) {
+        if (name == null) {
+            return ResponseEntity.badRequest().body("customer name is required");
+        }
         Customer customer = customerService.findByName(name);
         if (customer == null) {
             return ResponseEntity.notFound().build();
