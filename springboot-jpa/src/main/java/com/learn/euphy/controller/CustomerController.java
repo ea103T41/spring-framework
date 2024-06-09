@@ -34,7 +34,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Customer> findCustomerById(@PathVariable Long id) {
+    public ResponseEntity<Customer> findCustomerById(@PathVariable("id") Long id) {
         Customer customer = customerService.findOneById(id);
         if (customer == null) {
             return ResponseEntity.notFound().build();
@@ -68,7 +68,7 @@ public class CustomerController {
     }
 
     @DeleteMapping
-    public ResponseEntity<String> delCustomer(@RequestParam String name) {
+    public ResponseEntity<String> delCustomer(@RequestParam(name = "name") String name) {
         Customer customer = customerService.findByName(name);
         if (customer == null) {
             return ResponseEntity.notFound().build();
