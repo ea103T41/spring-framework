@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <parent>
-        <groupId>com.learn.euphy</groupId>
+        <groupId>com.euphy.learn</groupId>
         <artifactId>springboot-framework</artifactId>
         <version>1.0-snapshot</version>
         <relativePath/>
