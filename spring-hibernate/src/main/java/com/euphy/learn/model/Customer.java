@@ -3,6 +3,7 @@ package com.euphy.learn.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
 
 import java.io.Serializable;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "t_customer")
 @Audited
+@AuditTable("audit_t_customer")
 public class Customer implements Serializable {
 
     @Id

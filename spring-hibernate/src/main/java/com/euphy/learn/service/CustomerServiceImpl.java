@@ -30,7 +30,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     @Override
     public void delCustomerById(Long id) {
-        customerDao.deleteById(id);
+        Customer existCustomer = customerDao.findById(id);
+        if (existCustomer == null) {
+            throw new RuntimeException("Customer not found");
+        }
+        customerDao.delete(existCustomer);
     }
 
     @Transactional

@@ -44,6 +44,7 @@ public abstract class AbstractHibernateDao <T extends Serializable>
     }
 
     @Override
+    // no hibernate audit
     public void deleteById(final long entityId) {
         getCurrentSession()
                 .createMutationQuery("delete from " + clazz.getName() + " where id = :id ")
