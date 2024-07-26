@@ -2,6 +2,7 @@ package com.euphy.learn.controller;
 
 import com.euphy.learn.dto.CustomerDto;
 import com.euphy.learn.model.Customer;
+import com.euphy.learn.model.CustomerAddress;
 import com.euphy.learn.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,12 +35,12 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Customer> findCustomerById(@PathVariable("id") Long id) {
+    public ResponseEntity<CustomerDto> findCustomerById(@PathVariable("id") Long id) {
         Customer customer = customerService.findOneById(id);
         if (customer == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(customer);
+        return ResponseEntity.ok(toDto(customer));
     }
 
     @GetMapping("/age/{age}")
@@ -81,11 +82,16 @@ public class CustomerController {
         if (customerDto.name() == null || customerDto.age() == null || customerDto.createBy() == null) {
             throw new IllegalArgumentException("name, age and createBy are required");
         }
-        return new Customer(customerDto.name(), customerDto.age(), customerDto.createBy());
+        Customer customer = new Customer(customerDto.name(), customerDto.age(), customerDto.createBy());
+        CustomerAddress address = new CustomerAddress(customerDto.address());
+        customer.setAddress(address);
+        address.setCustomer(customer);
+        return customer;
     }
 
     private CustomerDto toDto(Customer customer) {
-        return new CustomerDto(customer.getName(), customer.getAge(), customer.getCreateBy());
+        return new CustomerDto(customer.getName(), customer.getAge(), customer.getCreateBy(),
+                customer.getAddress().getRoad());
     }
 
 }

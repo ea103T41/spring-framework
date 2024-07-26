@@ -3,6 +3,7 @@ package com.euphy.learn.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.envers.AuditMappedBy;
 import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
 
@@ -39,6 +40,12 @@ public class Customer implements Serializable {
     @Column(name = "modify_dt")
     @UpdateTimestamp
     private Date modifyDt;
+
+    @OneToOne(
+            cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+            mappedBy = "customer", orphanRemoval = true)
+    @AuditMappedBy(mappedBy = "customer")
+    private CustomerAddress address;
 
     public Customer() {
     }
@@ -103,5 +110,13 @@ public class Customer implements Serializable {
 
     public void setModifyDt(Date modifyDt) {
         this.modifyDt = modifyDt;
+    }
+
+    public CustomerAddress getAddress() {
+        return address;
+    }
+
+    public void setAddress(CustomerAddress address) {
+        this.address = address;
     }
 }
