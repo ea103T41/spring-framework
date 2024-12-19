@@ -20,10 +20,12 @@ public class WebSecurityConfig {
     @Bean
     public InMemoryUserDetailsManager inMemoryUserDetailManager() {
         UserDetails user1 = User.withUsername("user")
+                // password: 123456
                 .password("{bcrypt}$2a$10$OK4UTs4XSi6Jm.jdYHPvleKwDPFt3a9LiAK3MrjyU/KtcLEbZl6Em")
                 .authorities("USER")
                 .build();
         UserDetails user2 = User.withUsername("admin")
+                // password: password
                 .password("{sha256}97cde38028ad898ebc02e690819fa220e88c62e0699403e94fff291cfffaf8410849f27605abcbc0")
                 .authorities("ADMIN")
                 .build();
