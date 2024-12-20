@@ -30,6 +30,11 @@ public class DefaultSecurityConfig {
         return http.formLogin(withDefaults()).build();
     }
 
+    /*
+     * authorizationServerSecurityFilterChain 是專門為 OAuth2 授權伺服器配置安全;
+     * defaultSecurityFilterChain 則是為所有其他請求配置了一個基本的安全過濾鏈，要求登錄才能訪問
+     */
+
     @Bean
     @Order(2)
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {

@@ -26,7 +26,5 @@ spring:
                 - refresh_token
               redirect-uris:
                 - http://127.0.0.1:8080/login/oauth2/code/articles-client-oidc
-                - http://127.0.0.1:8080/authorized
               scopes:
                 - openid
-                - articles.read
