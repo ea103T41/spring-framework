@@ -32,15 +32,22 @@ public class SecurityConfig {
 
     /*
      * authorizationServerSecurityFilterChain 是專門為 OAuth2 授權伺服器配置安全;
+     * 處理與 authorizationServerConfigurer 定義的端點匹配的請求，例如：
+        * /oauth2/authorize
+        * /oauth2/token
+        * /oauth2/jwks
      * defaultSecurityFilterChain 則是為所有其他請求配置了一個基本的安全過濾鏈，要求登錄才能訪問
      */
 
     @Bean
     @Order(2)
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest()
-                .authenticated())
-            .formLogin(withDefaults());
+        http
+          .authorizeHttpRequests(authorizeRequests -> authorizeRequests
+            .anyRequest().authenticated())
+          // Form login handles the redirect to the login page from the
+          // authorization server filter chain
+          .formLogin(withDefaults());
         return http.build();
     }
 

@@ -15,7 +15,7 @@ public class ResourceServerConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.securityMatcher("/articles/**")
             .authorizeHttpRequests(authorize -> authorize.anyRequest()
-                .hasAuthority("SCOPE_openid"))
+                .hasAnyAuthority("SCOPE_openid", "SCOPE_user"))
             // 指示 Spring Security 使用 OAuth2 Resource Server 模式，且配置該伺服器接受 JWT（JSON Web Token）來進行認證
             .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
         return http.build();
