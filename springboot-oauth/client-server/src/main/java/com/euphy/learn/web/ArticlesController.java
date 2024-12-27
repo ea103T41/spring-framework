@@ -1,4 +1,4 @@
-package com.baeldung.web;
+package com.euphy.learn.web;
 
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
@@ -15,7 +15,7 @@ public class ArticlesController {
         this.webClient = webClient;
     }
 
-    private WebClient webClient;
+    private final WebClient webClient;
 
     @GetMapping(value = "/articles")
     public String[] getArticles(

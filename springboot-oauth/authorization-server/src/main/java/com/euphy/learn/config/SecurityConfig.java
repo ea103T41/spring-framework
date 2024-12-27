@@ -1,4 +1,4 @@
-package com.baeldung.config;
+package com.euphy.learn.config;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class DefaultSecurityConfig {
+public class SecurityConfig {
 
     @Bean
     @Order(1)
