@@ -53,6 +53,7 @@ public class SecurityConfig {
 
     @Bean
     UserDetailsService users() {
+        // storing in-memory password using BCrypt
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         UserDetails user = User.builder()
             .username("admin")
